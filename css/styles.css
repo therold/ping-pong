@@ -49,3 +49,6 @@ body {
   position: relative;
   left: 500px;
 }
+#stop {
+  display: none;
+}
