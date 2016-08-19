@@ -15,7 +15,7 @@ h1 {
   color: white;
 }
 .jumbotron {
-  background: rgba(238, 238, 238, 0.7)
+  background: rgba(238, 238, 238, 0.8)
 }
 .jumbotron p {
   font-size: 16px;
@@ -35,6 +35,9 @@ h1 {
 .pong {
   position: relative;
   left: 500px;
+}
+.output-box {
+  display: none;
 }
 .results {
   height: 500px;
