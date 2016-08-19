@@ -1,6 +1,6 @@
 // Business logic
 var pingPong = function(number) {
-  if (!number || number < 1)  {
+  if (!number || number < 1 || typeof number !== "number")  {
     return false
   } else {
     var numbers = [];
@@ -40,11 +40,11 @@ $(document).ready(function() {
   $("form#input-form").submit(function(event) {
     var userInput = parseInt($("input#input-number").val());
     var outputs = pingPong(userInput);
-    var delay = 400;
-    $("div.results").children().remove();
     if (!outputs) {
       alert("Please enter a number!");
     } else {
+      var delay = 400;
+      $("div.results").children().remove();
       $("body").animate({ scrollTop: $(".results").offset().top }, 200);
       $(".done").slideUp();
       $(".counting").slideDown();
@@ -54,11 +54,9 @@ $(document).ready(function() {
       $("button#submit").prop("disabled", true);
       outputs.forEach(function(output, i) {
         if (output === "ping" || output === "pong") {
-          $("div.results").promise().done(function() {
-            $(this).prepend("<p class='result'><span class='" + output + "'>" + output + "</span></p>");
-            $("p.result:nth-child(1)").delay(delay * i).animate({height:'toggle'});
-            $("p.result:nth-child(1)").children().delay(delay * i).animate({left:'0px', right: '0px'});
-          });
+          $("div.results").prepend("<p class='result'><span class='" + output + "'>" + output + "</span></p>");
+          $("p.result:nth-child(1)").delay(delay * i).animate({height:'toggle'});
+          $("p.result:nth-child(1)").children().delay(delay * i).animate({left:'0px', right: '0px'});
         } else if (output === "ping-pong") {
           $("div.results").prepend("<p class=result><span class='ping'>ping</span> - <span class='pong'>pong</span></p>");
           $("p.result:nth-child(1)").delay(delay * i).animate({height:'toggle'});
@@ -66,10 +64,8 @@ $(document).ready(function() {
             $(this).delay(delay * i).animate({left:'0px', right: '0px'});
           });
         } else {
-          $("div.results").promise().done(function() {
-            $(this).prepend("<p class=result>" + output + "</p>");
-            $("p.result:nth-child(1)").delay(delay * i).slideDown();
-          });
+          $("div.results").prepend("<p class=result>" + output + "</p>");
+          $("p.result:nth-child(1)").delay(delay * i).slideDown();
         }
       });
       $(".counting").delay(delay * outputs.length).slideUp(function() {
