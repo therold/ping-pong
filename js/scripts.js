@@ -19,6 +19,10 @@ var pingPong = function(number) {
 }
 
 $(document).ready(function() {
+  $("button#top").on("click", function(){
+    $("body").animate({ scrollTop: 0 }, 200);
+  });
+
   $("form#input-form").submit(function(event) {
     var userInput = parseInt($("input#input-number").val());
     var outputs = pingPong(userInput);
@@ -26,21 +30,29 @@ $(document).ready(function() {
     if (!outputs) {
       alert("Please enter a number!");
     } else {
+      // $(".results").get(0).scrollIntoView();
+      $("body").animate({ scrollTop: $(".results").offset().top }, 200);
       $(".done").slideUp();
       $(".counting").slideDown();
       outputs.forEach(function(output, i) {
-        $("div.results").prepend("<p class=result>" + output + "</p>");
-        // debugger;
         if(output === "ping") {
+          $("div.results").prepend("<p class='result'><span class='ping'>" + output + "</span></p>");
           $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle'});
+          $("p.result:nth-child(1)").children().first().delay(400 * i).animate({left:'0px', right: '0px'});
         } else if (output === "pong") {
-          $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle'});
+          $("div.results").prepend("<p class=result><span class='pong'>" + output + "</span></p>");
+          $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle', left: '0px'});
+          $("p.result:nth-child(1)").children().first().delay(400 * i).animate({left:'0px', right: '0px'});
         } else if (output === "ping-pong") {
+          $("div.results").prepend("<p class=result><span class='ping'>ping</span> - <span class='pong'>pong</span></p>");
           $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle'});
+          $("p.result:nth-child(1)").children().each(function() {
+            $(this).delay(400 * i).animate({left:'0px', right: '0px'});
+          });
         } else {
+          $("div.results").prepend("<p class=result>" + output + "</p>");
           $("p.result:nth-child(1)").delay(400 * i).slideDown();
         }
-
       });
       $(".counting").delay(400 * outputs.length).slideUp(function() {
         $(".done").slideDown();

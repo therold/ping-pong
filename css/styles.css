@@ -1,28 +1,50 @@
-
+body {
+  margin-top: 20px;
+  background: #0F4800;
+}
+ h3 {
+  position: relative;
+  height:30px;
+  margin: 0;
+}
 .result,
 .counting,
 .done {
   display: none;
   color: white;
-  /*margin: 0 auto;*/
-  /*text-align: center;*/
 }
-
+.jumbotron {
+  background: rgba(238, 238, 238, 0.7)
+}
 .result {
   text-align: center;
-}
-body {
-  background: #0F4800;
-}
-.results-header {
   position: relative;
-  height:30px;
-  /*text-align: center;*/
-  /*margin:0 auto;*/
 }
-
+.clearfix {
+  padding-right: 0px;
+}
+.header-padding {
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 0px;
+}
+.no-padding {
+  padding: 0px;
+}
 .results {
   height: 500px;
   overflow-y: auto;
   background: #448F30;
+}
+#results-header {
+  background: #256B12;
+  height: 40px;
+}
+.ping {
+  position: relative;
+  right: 300px;
+}
+.pong {
+  position: relative;
+  left: 300px;
 }
