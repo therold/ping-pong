@@ -1,14 +1,28 @@
-ul {
-  list-style: none;
-}
 
 .result,
 .counting,
 .done {
   display: none;
+  color: white;
+  /*margin: 0 auto;*/
+  /*text-align: center;*/
 }
 
+.result {
+  text-align: center;
+}
+body {
+  background: #0F4800;
+}
 .results-header {
   position: relative;
   height:30px;
+  /*text-align: center;*/
+  /*margin:0 auto;*/
+}
+
+.results {
+  height: 500px;
+  overflow-y: auto;
+  background: #448F30;
 }

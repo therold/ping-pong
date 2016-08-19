@@ -22,36 +22,29 @@ $(document).ready(function() {
   $("form#input-form").submit(function(event) {
     var userInput = parseInt($("input#input-number").val());
     var outputs = pingPong(userInput);
-    $("ul.results").children().remove();
+    $("div.results").children().remove();
     if (!outputs) {
       alert("Please enter a number!");
     } else {
       $(".done").slideUp();
       $(".counting").slideDown();
       outputs.forEach(function(output, i) {
-        $("ul.results").prepend("<li class=result>" + output + "</li>");
+        $("div.results").prepend("<p class=result>" + output + "</p>");
         // debugger;
         if(output === "ping") {
-          $("li.result:nth-child(1)").delay(500 * i).animate({height:'toggle'});
+          $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle'});
         } else if (output === "pong") {
-          $("li.result:nth-child(1)").delay(500 * i).animate({height:'toggle'});
+          $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle'});
         } else if (output === "ping-pong") {
-          $("li.result:nth-child(1)").delay(500 * i).animate({height:'toggle'});
+          $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle'});
         } else {
-          $("li.result:nth-child(1)").delay(500 * i).slideDown();
+          $("p.result:nth-child(1)").delay(400 * i).slideDown();
         }
 
       });
-      $(".counting").delay(500 * outputs.length).slideUp(function() {
+      $(".counting").delay(400 * outputs.length).slideUp(function() {
         $(".done").slideDown();
       });
-
-      //  $("li").show();
-      // $("li.result").each(function(i) {
-        // if ($(this).text() !== "ping") {
-          // $(this).delay(50 * i).slideDown();
-        // }
-      // });
     }
     event.preventDefault();
   });
