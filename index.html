@@ -10,15 +10,32 @@
   </head>
   <body>
     <div class="container">
-      <h1>Ping Pong</h1>
-      <div class="input-form"><!-- BEGIN FORM -->
-        <form id="input-form">
-          <label for="input-number">Please enter a positive number:</label>
-          <input class="form-control" id="input-number" type="text">
-          <button class="btn btn-success" type="submit">Submit</button>
-        </form>
-      </div><!-- END OF FORM -->
-      <div class="results">
+      <div class="jumbotron">
+        <h1>Ping Pong</h1>
+        <p>Let's play a game of ping pong!</p>
+        <p>Rules:</p>
+        <ol>
+          <li>Numbers divisible by 3 become ping.</li>
+          <li>Numbers divisible by 5 become pong.</li>
+          <li>Numbers divisible by 15 become ping-pong.</li>
+        </ol>
+        <div class="input-form"><!-- BEGIN FORM -->
+          <form id="input-form">
+            <label for="input-number">Please enter a positive number:</label>
+            <div class="input-group">
+              <input class="form-control" id="input-number" type="text">
+              <span class="input-group-btn">
+                <button class="btn btn-success" type="submit">Submit</button>
+              </span>
+            </div>
+          </form>
+        </div><!-- END OF FORM -->
+      </div>
+      <div>
+        <div class="results-header">
+          <p class="counting">Counting now:</p>
+          <p class="done">All done! Shall we play again?</p>
+        </div>
         <ul class="results"></ul>
       </div>
     </div><!-- END CONTAINER -->

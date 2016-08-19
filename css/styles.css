@@ -1,0 +1,14 @@
+ul {
+  list-style: none;
+}
+
+.result,
+.counting,
+.done {
+  display: none;
+}
+
+.results-header {
+  position: relative;
+  height:30px;
+}
