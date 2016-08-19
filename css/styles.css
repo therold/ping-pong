@@ -5,11 +5,6 @@ body {
 h1 {
   text-align: center;
 }
- h3 {
-  position: relative;
-  height:30px;
-  margin: 0;
-}
 .result,
 .counting {
   display: none;
@@ -22,26 +17,16 @@ h1 {
 .jumbotron {
   background: rgba(238, 238, 238, 0.7)
 }
+.jumbotron p {
+  font-size: 16px;
+}
 .result {
   text-align: center;
   position: relative;
   width: auto;
 }
-.clearfix {
-  padding-right: 0px;
-}
-.header-padding {
-  padding-top: 7px;
-  padding-left: 10px;
-  padding-right: 0px;
-}
 .no-padding {
   padding: 0px;
-}
-.results {
-  height: 500px;
-  overflow-y: auto;
-  background: #448F30;
 }
 .ping {
   position: relative;
@@ -51,9 +36,24 @@ h1 {
   position: relative;
   left: 500px;
 }
+.results {
+  height: 500px;
+  overflow-y: auto;
+  background: #448F30;
+}
+.header-padding {
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 0px;
+}
 #results-header {
   background: #256B12;
   height: 40px;
+}
+#results-header h3 {
+  position: relative;
+  height:30px;
+  margin: 0;
 }
 #stop {
   display: none;

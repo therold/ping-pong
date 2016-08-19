@@ -83,7 +83,6 @@ $(document).ready(function() {
           $("p.result:nth-child(1)").delay(delay * i).slideDown();
         }
       });
-
       $("body").delay(delay * outputs.length).show(function() {
         $(".done").text("All done! Shall we play again?");
         toggleScreen();
