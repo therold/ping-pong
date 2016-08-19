@@ -1,14 +1,21 @@
 var pingPong = function(number) {
-  return number;
+  if (!number || number < 1)  {
+    return false
+  } else {
+    return number;
+  }
 }
-
 
 $(document).ready(function() {
   $("form#input-form").submit(function(event) {
-    var userInput = $("input#input-number").val();
+    var userInput = parseInt($("input#input-number").val());
     var outputs = pingPong(userInput);
     $("ul.results").children().remove();
-    $("ul.results").append("<li>" + outputs + "</li>")
+    if (!outputs) {
+      alert("Please enter a number!");
+    } else {
+      $("ul.results").append("<li>" + outputs + "</li>");
+    }
     event.preventDefault();
   });
 });
