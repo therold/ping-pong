@@ -19,6 +19,7 @@ body {
 .result {
   text-align: center;
   position: relative;
+  width: auto;
 }
 .clearfix {
   padding-right: 0px;
@@ -42,9 +43,9 @@ body {
 }
 .ping {
   position: relative;
-  right: 300px;
+  right: 500px;
 }
 .pong {
   position: relative;
-  left: 300px;
+  left: 500px;
 }

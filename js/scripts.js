@@ -26,6 +26,7 @@ $(document).ready(function() {
   $("form#input-form").submit(function(event) {
     var userInput = parseInt($("input#input-number").val());
     var outputs = pingPong(userInput);
+    var delay = 400;
     $("div.results").children().remove();
     if (!outputs) {
       alert("Please enter a number!");
@@ -35,26 +36,22 @@ $(document).ready(function() {
       $(".done").slideUp();
       $(".counting").slideDown();
       outputs.forEach(function(output, i) {
-        if(output === "ping") {
-          $("div.results").prepend("<p class='result'><span class='ping'>" + output + "</span></p>");
-          $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle'});
-          $("p.result:nth-child(1)").children().first().delay(400 * i).animate({left:'0px', right: '0px'});
-        } else if (output === "pong") {
-          $("div.results").prepend("<p class=result><span class='pong'>" + output + "</span></p>");
-          $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle', left: '0px'});
-          $("p.result:nth-child(1)").children().first().delay(400 * i).animate({left:'0px', right: '0px'});
+        if (output === "ping" || output === "pong") {
+          $("div.results").prepend("<p class='result'><span class='" + output + "'>" + output + "</span></p>");
+          $("p.result:nth-child(1)").delay(delay * i).animate({height:'toggle'});
+          $("p.result:nth-child(1)").children().delay(delay * i).animate({left:'0px', right: '0px'});
         } else if (output === "ping-pong") {
           $("div.results").prepend("<p class=result><span class='ping'>ping</span> - <span class='pong'>pong</span></p>");
-          $("p.result:nth-child(1)").delay(400 * i).animate({height:'toggle'});
+          $("p.result:nth-child(1)").delay(delay * i).animate({height:'toggle'});
           $("p.result:nth-child(1)").children().each(function() {
-            $(this).delay(400 * i).animate({left:'0px', right: '0px'});
+            $(this).delay(delay * i).animate({left:'0px', right: '0px'});
           });
         } else {
           $("div.results").prepend("<p class=result>" + output + "</p>");
-          $("p.result:nth-child(1)").delay(400 * i).slideDown();
+          $("p.result:nth-child(1)").delay(delay * i).slideDown();
         }
       });
-      $(".counting").delay(400 * outputs.length).slideUp(function() {
+      $(".counting").delay(delay * outputs.length).slideUp(function() {
         $(".done").slideDown();
       });
     }
