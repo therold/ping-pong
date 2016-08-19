@@ -52,7 +52,7 @@ $(document).ready(function() {
   });
 
   $("button#stop").on("click", function(){
-    $(".counting, .done, p.result").clearQueue().stop();
+    $(".counting, .done, p.result, body").clearQueue().stop();
     $(".done").text("Counting canceled! Shall we play again?");
     toggleScreen();
   });
@@ -62,10 +62,12 @@ $(document).ready(function() {
     var outputs = pingPong(userInput);
     if (!outputs) {
       alert("Please enter a number!");
+      $("input#input-number").val() = "";
     } else {
       var delay = 400;
       $("div.results").children().remove();
-      $("body").animate({ scrollTop: $(".results").offset().top }, 200);
+      $("div.output-box").show();
+      $("body").animate({ scrollTop: $(".results").offset().top }, 300);
       toggleScreen();
       outputs.forEach(function(output, i) {
         if (output === "ping" || output === "pong") {
