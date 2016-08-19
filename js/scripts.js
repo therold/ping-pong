@@ -39,6 +39,14 @@ $(document).ready(function() {
     }
   };
 
+  $("input#input-number").keyup(function() {
+    if ($("input#input-number").val().length === 0) {
+      $("button#submit").prop("disabled", true);
+    } else {
+      $("button#submit").prop("disabled", false);
+    }
+  });
+
   $("button#top").on("click", function(){
     $("body").animate({ scrollTop: 0 }, 200);
   });
