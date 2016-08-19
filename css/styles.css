@@ -2,15 +2,21 @@ body {
   margin-top: 20px;
   background: #0F4800;
 }
+h1 {
+  text-align: center;
+}
  h3 {
   position: relative;
   height:30px;
   margin: 0;
 }
 .result,
+.counting {
+  display: none;
+}
+.result,
 .counting,
 .done {
-  display: none;
   color: white;
 }
 .jumbotron {
@@ -37,10 +43,6 @@ body {
   overflow-y: auto;
   background: #448F30;
 }
-#results-header {
-  background: #256B12;
-  height: 40px;
-}
 .ping {
   position: relative;
   right: 500px;
@@ -48,6 +50,10 @@ body {
 .pong {
   position: relative;
   left: 500px;
+}
+#results-header {
+  background: #256B12;
+  height: 40px;
 }
 #stop {
   display: none;
